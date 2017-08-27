@@ -9,6 +9,10 @@ RSpec.describe Map, :type => :model do
 end
 
 RSpec.describe Map, :type => :model do
+  it { should validate_presence_of :name }
+end
+
+RSpec.describe Map, :type => :model do
   it "creates a unique key on creation" do
     map = Map.create!(name: "Sam Sheehy")
 
