@@ -2,7 +2,7 @@ class Map < ApplicationRecord
   validates :name, :presence => true
   validates :key, :presence => true
 
-  before_create :generate_key
+  before_validation :generate_key
 
   def generate_key
     key_check = true
