@@ -7,6 +7,11 @@ RSpec.describe Map, :type => :model do
     expect(map.name).to eq("Sam Sheehy")
   end
 
+  it "generates a key on creation" do
+    map = Map.create!(name: "SS", key: nil)
+
+    expect(map.key.nil?).to be_falsey
+  end
+
   it { should validate_presence_of :name }
-  it { should validate_presence_of :key }
 end
