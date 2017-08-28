@@ -19,7 +19,7 @@ class Node < ApplicationRecord
   end
 
   def get_chain_string
-    return "#{self.name} " if self.root?
+    return "#{self.name} " if !self.ancestry
     self.parent.get_chain_string + " > #{self.name}"
   end
 end

@@ -1,1 +1,13 @@
-<h1>Welcome to a node page, mate.</h1>
+<h1>Welcome to <%= @node.name %>'s page, mate.</h1>
+
+<h2><%= @node.get_chain_string %></h2>
+
+<p> Add to the network!</p>
+
+<%= form_tag nodes_create_child_path do %>
+  <%= hidden_field_tag(:parent_key, @node.key) %>
+  <%= label_tag(:name, "Enter your name") %>
+  <%= text_field_tag(:name) %>
+  <%= submit_tag "Submit" %>
+
+<% end %>
