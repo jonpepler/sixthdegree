@@ -1,4 +1,4 @@
-class Map < ApplicationRecord
+class Node < ApplicationRecord
   validates :name, :presence => true
   validates :key, :presence => true
 
@@ -9,7 +9,7 @@ class Map < ApplicationRecord
     key = ""
     while key_check
       key = SecureRandom.urlsafe_base64 25
-      key_check = false unless Map.find_by_key key
+      key_check = false unless Node.find_by_key key
     end
     self.key = key
   end
