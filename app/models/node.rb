@@ -1,4 +1,5 @@
 class Node < ApplicationRecord
+  has_ancestry
   validates :name, :presence => true
   validates :key, :presence => true
 
@@ -19,7 +20,7 @@ class Node < ApplicationRecord
   end
 
   def get_chain_string
-    return "#{self.name} " if !self.ancestry
+    return "#{self.name} " if self.root?
     self.parent.get_chain_string + " > #{self.name}"
   end
 end

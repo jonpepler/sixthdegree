@@ -16,10 +16,10 @@ class NodesController < ApplicationController
   	@node = Node.new(name: name)
   	parent = Node.find_by_key params[:parent_key]
   	if parent
-  		@node[:parent] = parent
+  		@node.parent = parent
   		@node.save
   		redirect_to "/nodes/#{@node.key}"
   	end
-  	
+
   end
 end
