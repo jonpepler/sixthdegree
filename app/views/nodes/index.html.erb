@@ -1,6 +1,15 @@
 <h1>Welcome to <%= @node.name %>'s page, mate.</h1>
 <h2><%= @node.get_chain_string %></h2>
 
+<div>
+  <div><p><%= @node.name %>'s children:</p></div>
+  <% for child in @node.children do %>
+    <div>
+      <p><%= child.name %></p>
+    </div>
+  <% end %>
+</div>
+
 <p> Add to the network!</p>
 
 <%= form_tag nodes_create_child_path do %>
